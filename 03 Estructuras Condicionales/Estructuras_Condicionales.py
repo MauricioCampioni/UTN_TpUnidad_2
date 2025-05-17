@@ -104,11 +104,26 @@
 
 
 #Ejercicio 10
-Hemisferio = input("Ingrese el hemisferio (N/S): ").upper()
-Mes_del_año = input("Ingrese el mes del año: ")
-Dia= int(input("Ingrese el día del mes: "))
-
-for mes in ["ENERO", "FEBRERO", "MARZO","DICIEMBRE"]:
-    if Hemisferio == "N" and mes in Mes_del_año and Dia >= 21:
-        print("Es verano")
+def ejercicio_10():
+    hemisferio = input("Ingrese el hemisferio (N/S): ").upper()
+    mes = int(input("Ingrese el número del mes (1-12): "))
+    dia = int(input("Ingrese el día del mes: "))
+    if (mes == 12 and dia >= 21) or mes in [1, 2] or (mes == 3 and dia <= 20):
+        estacion_norte = "Invierno"
+        estacion_sur = "Verano"
+    elif (mes == 3 and dia >= 21) or mes in [4, 5] or (mes == 6 and dia <= 20):
+        estacion_norte = "Primavera"
+        estacion_sur = "Otoño"
+    elif (mes == 6 and dia >= 21) or mes in [7, 8] or (mes == 9 and dia <= 20):
+        estacion_norte = "Verano"
+        estacion_sur = "Invierno"
+    else:
+        estacion_norte = "Otoño"
+        estacion_sur = "Primavera"
+    if hemisferio == "N":
+        print(estacion_norte)
+    elif hemisferio == "S":
+        print(estacion_sur)
+    else:
+        print("Hemisferio inválido")
     
